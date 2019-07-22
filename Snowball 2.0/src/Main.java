@@ -13,19 +13,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		final Manager man = new Manager(400,400,100000);
-		
-		
+		//final Manager man = new Manager(400,400,100000);
 		Runnable r = new Runnable() {
             public void run() {
-            	
-            	Painter board = new Painter(800,800, man.getArray());
-                
-                for (int ii=0; ii<30; ii++) {
-                 
-                }
-                
-                JOptionPane.showMessageDialog(null, board);
+            	new Menu();
+                //JOptionPane.showMessageDialog(null, board);
             }
         };
         

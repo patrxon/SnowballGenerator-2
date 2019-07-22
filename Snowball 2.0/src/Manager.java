@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Manager {
 
+	private int sizex;
+	private int sizey;
 	private int posx;
 	private int posy;
 	
@@ -16,7 +18,8 @@ public class Manager {
 	private String code = NGen.getCode();
 	
 	Manager(int sizex, int sizey, int length) {
-		
+		this.sizex = sizex;
+		this.sizey = sizey;
 		grid = new Space(sizex,sizey);
 		
 		posx = sizex/2;
@@ -27,7 +30,21 @@ public class Manager {
 		//test();
 		
 	}
-	
+
+	void ReInit(String newCode, int length){
+		joints.clear();
+		NGen = new CodeGenerator(newCode);
+		code = NGen.getCode();
+		grid = new Space(sizex,sizey);
+
+		posx = sizex/2;
+		posy = sizey/2;
+
+		Startup();
+		Generate(length);
+	}
+
+
 	void Startup() {
 		
 		joints.add(new Joint(posx,posy,posx,posy+1,-1));
